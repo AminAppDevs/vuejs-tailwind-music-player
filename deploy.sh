@@ -1,8 +1,9 @@
-# abort on errors
-set -e
-
 # build
 npm run build
+
+# save the latest commit hash as a string
+LOGSTRING=$(git log)
+COMMIT=$(echo $LOGSTRING | awk '{print $2}')
 
 # navigate into the build output directory
 cd dist
@@ -12,12 +13,13 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m "deploy (commit: $COMMIT)"
 
-# if you are deploying to https://AminAppDevs.github.io
-# git push -f git@github.com:AminAppDevs/AminAppDevs.github.io.git main
+# if you are using SSH key authentication
+# git push -f git@github.com:<USER-NAME>/<REPO>.git master:gh-pages
 
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:AminAppDevs/vuejs-simple-music-player main:gh-pages
+# if you are using HTTPS/2FA authentication
+# git push -f https://github.com/<USER-NAME>/<REPO>.git master:gh-pages
+git push -f https://github.com/AminAppDevs/vuejs-tailwind-music-player.git master:gh-pages
 
-cd -
+cd ..
