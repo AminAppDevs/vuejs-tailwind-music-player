@@ -1,6 +1,6 @@
 # vuejs-tailwind-music-player
 Simple music player using VueJs and Tailwind css
-[Demo](https://aminappdevs.github.io/vuejs-tailwind-music-player/)
+###[Demo](https://aminappdevs.github.io/vuejs-tailwind-music-player/)
 
 ## Project setup
 ```
